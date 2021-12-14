@@ -1,0 +1,187 @@
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin: 0 auto;
+}
+
+#customers td,
+#customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: start;
+}
+
+#customers td,
+#customers th :hover {
+  cursor: pointer;
+}
+
+#customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+  background-color: #ddd;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aa6d;
+  color: white;
+}
+
+.view-button {
+  padding: 10px;
+}
+
+.edit-button {
+  padding: 10px;
+}
+
+.view-button:hover {
+  cursor: pointer;
+}
+
+.view-button a {
+  text-decoration: none;
+  color: black;
+}
+
+
+
+.edit-button a{
+  text-decoration: none;
+  color: black;
+}
+
+.button-flex{
+    display: flex;
+    gap: 10px;
+}
+
+.output-table{
+    margin: 20px 10px auto;
+}
+
+.bottom-button{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+.bottom-button button{
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid green;
+}
+
+.bottom-button button:hover{
+  cursor: pointer;
+}
+
+.edit-user-button a{
+  text-decoration: none;
+  color: black;
+}
+.edit-user-button{
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid green;
+}
+
+.upper-button-section{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+.upper-button-section button{
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid green;
+}
+
+.modal-class a{
+    text-decoration: none;
+    color: black;
+}
+
+.modal-class button{
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid green;
+}
+
+.modal-close-button-home{
+  top: 2%;
+    right: 2%;
+    position: absolute;
+}
+
+.button-hover:hover{
+    cursor: pointer;
+}
+
+
+.close-button{
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid red;
+}
+
+.close-button:hover{
+  cursor: pointer;
+}
+
+.add-user-button{
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid green;
+}
+
+.add-user-button:hover{
+  cursor: pointer;
+}
+
+.modal-section{
+  position: absolute;
+  inset: 40px;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+
+@media (min-width: 350px) and (max-width: 520px){
+    .button-flex{
+       flex-direction: column;
+    }
+
+    .container{
+      padding: 10px;
+    }
+  }

@@ -1,0 +1,27 @@
+.input-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.main-form{
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+
+.form-element{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin: 10px;
+}
+
+.form-element input{
+    font-size: 20px;
+}
+
+.form-element label{
+    font-size: 22px;
+}

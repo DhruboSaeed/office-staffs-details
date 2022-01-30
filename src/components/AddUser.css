@@ -1,7 +1,54 @@
 .input-form{
     display: flex;
-    margin: 20px;
-    padding: 10px;
+    flex-direction: column;
     width: 100%;
     margin: 0 auto;
+}
+
+.main-form{
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+
+.form-element{
+    display: flex;
+    text-align: start;
+    margin: 0 auto;
+    gap: 10px;
+    align-items: center;
+}
+
+.form-element input{
+    font-size: 20px;
+}
+
+.form-element label{
+    font-size: 22px;
+}
+
+.field-section{
+    margin: 10px;
+}
+
+.errorText{
+    color: red;
+}
+
+.Header{
+    font-size: 20px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section{
+    margin:  0 auto;
+}
+
+.select-class{
+    font-size: 15px;
+    width: 50%;
 }

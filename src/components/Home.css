@@ -50,8 +50,6 @@
   color: black;
 }
 
-
-
 .edit-button a{
   text-decoration: none;
   color: black;
@@ -59,7 +57,9 @@
 
 .button-flex{
     display: flex;
+    grid-gap: 10px;
     gap: 10px;
+    justify-content: center;
 }
 
 .output-table{

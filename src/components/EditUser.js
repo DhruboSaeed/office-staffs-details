@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { filteredDivisions, getStateCode } from "./Utility";
+import { City } from "country-state-city";
 import { Link, useParams } from "react-router-dom";
-import Select from "react-select";
 import "./EditUser.css";
 
 function EditUser() {
@@ -10,21 +11,38 @@ function EditUser() {
     first_name: "",
     last_name: "",
     user_type: "",
+    divison: "", 
+    district: "",
   });
 
-  const { first_name, last_name, user_type } = user;
+  const { first_name, last_name, user_type, division, district } = user;
 
   const onInputChnage = (e) => {
     setuser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const onSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    await axios.put(
-      `https://60f2479f6d44f300177885e6.mockapi.io/users/${id}`,
-      user
-    );
+    console.log("On Submit call");
+    console.log("user data", user);
+    axios
+      .put(`https://60f2479f6d44f300177885e6.mockapi.io/users/${id}`, user)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     // Redirect Section to Homepage
+    setuser({
+      first_name: "",
+      last_name: "",
+      user_type: "",
+      division: "",
+      district: "",
+      id: ""
+    })
+   
   };
 
   useEffect(() => {
@@ -35,8 +53,13 @@ function EditUser() {
     const result = await axios.get(
       `https://60f2479f6d44f300177885e6.mockapi.io/users/${id}`
     );
+
+    console.log("Result", result);
     setuser(result.data);
   };
+
+  const stateCode = getStateCode(user.division);
+  let citiesOfState = City.getCitiesOfState("BD", stateCode);
 
   return (
     <div className="input-form">
@@ -62,29 +85,36 @@ function EditUser() {
               onChange={(e) => onInputChnage(e)}
             />
           </div>
-          {/* <label>User Type</label>
-          <input
-            type="text"
-            placeholder="User Type"
-            name="user_type"
-            value={user_type}
-            onChange={(e) => onInputChnage(e)}
-          /> */}
           <div className="form-element">
-            <div className="location">
-              <label>
-                Division
-                <Select id="country">{}</Select>
-              </label>
-              <label>
-                District
-                <Select id="state" />
-              </label>
-            </div>
+            <select
+              name="division"
+              id="division"
+              value={division}
+              onChange={(e) => onInputChnage(e)}
+            >
+              <option value="">Select your Division</option>
+              {filteredDivisions.map((divisions) => {
+                return <option value={divisions.name}>{divisions.name}</option>;
+              })}
+            </select>
+
+            <label htmlFor="">District</label>
+            <select
+              name="district"
+              id="district"
+              value={district}
+              onChange={(e) => onInputChnage(e)}
+            >
+              <option value="">Select your district</option>
+              {citiesOfState.map((district) => {
+                return <option value={district.name}>{district.name}</option>;
+              })}
+            </select>
           </div>
         </div>
-        <button className="edit-user-button">
-          <Link to="/">Edit User</Link>
+        <button type="submit" className="edit-user-button">
+          {/* <Link to="/">Edit User</Link> */}
+          Edit
         </button>
         <button className="edit-user-button">
           <Link to="/">Back To Home</Link>

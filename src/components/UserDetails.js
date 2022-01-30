@@ -7,7 +7,7 @@ function UserDetails() {
   const [user, setuser] = useState({
     first_name: "",
     last_name: "",
-    user_type: "",
+    user_type: "", 
   });
 
   useEffect(() => {
@@ -51,6 +51,9 @@ function UserDetails() {
             </tr>
           </tbody>
         </table>
+        <button className="edit-button">
+          <Link to="/"> Back To Home</Link>
+        </button>
       </div>
     </div>
   );
